@@ -3,7 +3,7 @@
 
 # Check dependencies
 for dependency in curl git rake ; do 
-  if [! -e ${dependency} ]; then
+  if [ ! -e ${dependency} ]; then
     echo "FAILED DEPENDENCY: ${dependency} is not installed... exiting"
     exit
   fi
