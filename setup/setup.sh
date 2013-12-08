@@ -6,6 +6,8 @@
 curl --version >/dev/null 2>&1 || { echo >&2 "curl is required. Abort" ; exit 1; }
 git --version >/dev/null 2>&1 || { echo >&2 "git is required. Abort" ; exit 1; }
 rake --version >/dev/null 2>&1 || { echo >&2 "rake is required. Abort" ; exit 1; }
+ack --version >/dev/null 2>&1 || { echo >&2 "WARN: ack not found"; }
+ag --version >/dev/null 2>&1 || { echo >&2 "WARN: ag not found"; }
 
 # Setup janus
 echo "****************************"
@@ -15,7 +17,7 @@ echo "****************************"
 cd ${HOME}
 curl -Lo- https://bit.ly/janus-bootstrap | bash
 
-# Setup overrides 
+# Setup overrides
 
 echo "****************************"
 echo " Setting up Configs"
