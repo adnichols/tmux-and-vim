@@ -19,10 +19,33 @@ curl -Lo- https://bit.ly/janus-bootstrap | bash
 
 # Setup overrides 
 
+echo "****************************"
+echo " Setting up Configs"
+echo "****************************"
+
 for config in before after ; do
   if [ -f ~/.vimrc.${config} ];then
-    mv ~/.vimrc.${config} ~/.vimrc.${config}_old
+    mv -v ~/.vimrc.${config} ~/.vimrc.${config}_old
   fi
 
-  ln -s ~/.janus/setup/_${config} ~/.vimrc.${config}
+  ln -vs ~/.janus/setup/_${config} ~/.vimrc.${config}
 done
+
+# Setup tmux
+
+if [ -f ~/.tmux.conf ]; then
+  mv -v ~/.tmux.conf ~/.tmux.conf_old
+fi
+
+ln -vs ~/.janus/setup/_tmux.conf ~/.tmux.conf
+
+echo "******************************"
+echo " Setting up Additional plugins"
+echo "******************************"
+
+cd ~/.janus
+git submodule update
+
+echo ""
+echo "Done!"
+echo ""
