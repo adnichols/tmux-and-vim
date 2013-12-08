@@ -2,12 +2,10 @@
 # Quick setup
 
 # Check dependencies
-for dependency in curl git rake ; do 
-  if [ ! -e ${dependency} ]; then
-    echo "FAILED DEPENDENCY: ${dependency} is not installed... exiting"
-    exit
-  fi
-done
+# Check dependencies
+curl --version >/dev/null 2>&1 || { echo >&2 "curl is required. Abort" ; exit 1; }
+git --version >/dev/null 2>&1 || { echo >&2 "git is required. Abort" ; exit 1; }
+rake --version >/dev/null 2>&1 || { echo >&2 "rake is required. Abort" ; exit 1; }
 
 # Setup janus
 echo "****************************"
