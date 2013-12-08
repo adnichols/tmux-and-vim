@@ -1,0 +1,102 @@
+set nocursorline " don't highlight current line
+set background=dark
+set nocompatible
+"set clipboard=unnamed
+
+" keyboard shortcuts
+set autowrite
+set autoread
+set directory-=.
+set nowritebackup
+set softtabstop=2
+set tabstop=8 " Actual tabstops are 8 chars, if they exist I want to fix them
+set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
+autocmd! bufwritepost .vimrc source ~/.vimrc
+map <Leader>n :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  if ($TERM_PROGRAM == 'iTerm.app')
+    colorscheme desert
+  else
+    colorscheme desert
+  endif
+endif
+colorscheme desert
+
+let &colorcolumn="80,".join(range(120,999),",")
+highlight ColorColumn ctermbg=0 guibg=#2c2d27
+
+augroup AuNERDTreeCmd
+  autocmd!
+augroup end
+let g:netrw_altv = 1
+let g:netrw_winsize = 70
+let g:netrw_preview   = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize   = 30
+let g:nerdtree_tabs_open_on_console_startup = 0
+let g:headlights_use_plugin_menu = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#csv#enabled = 0
+let g:vimshell_editor_command = "vim"
+
+let g:ctrlp_prompt_mappings = {
+      \ 'AcceptSelection("e")': [],
+      \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+      \ }
+
+nmap <leader><space> :call whitespace#strip_trailing()<CR>
+map <leader>l :Align
+nmap <leader>a :Ack<space>
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --column'
+
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = "ag %s -l --nocolor -g '' --hidden"
+endif
+
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
+" Fix Cursor in TMUX
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+"map <C-w> :tabclose<CR>
+"map <C-t> :tabnew<CR>
+
+" inside screen / tmux
+map <Esc>[C <C-Right>
+map <Esc>[D <C-Left>
+" insert mode
+map! <Esc>[C <C-Right>
+map! <Esc>[D <C-Left>
+
+" no screen
+map <Esc>[1;5D <C-Left>
+map <Esc>[1;5C <C-Right>
+" insert mode
+map! <Esc>[1;5D <C-Left>
+map! <Esc>[1;5C <C-Right>
+nnoremap <C-right> :tabnext<CR>
+nnoremap } :tabnext<CR>
+nnoremap <C-left> :tabprevious<CR>
+nnoremap { :tabprevious<CR>
+" insert mode
+inoremap <C-right> <Esc>:tabnext<CR>
+inoremap <C-left> <Esc>:tabprevious<CR>
