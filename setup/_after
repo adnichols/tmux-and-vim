@@ -6,7 +6,7 @@ set nocompatible
 
 set autowrite
 set autoread
-"set autochdir
+"set autochdir "Caused problems with ctrlp (used homedir)
 set directory-=.
 set nowritebackup
 set softtabstop=2
@@ -36,13 +36,17 @@ function! ToggleVExplorer()
 endfunction
 map <silent> <C-E> :call ToggleVExplorer()<CR>
 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd CursorHold * checktime
 
-colorscheme desert
+" These should be mostly interchangeable with the configs here
+"colorscheme jellybeans
+"colorscheme desert
+"colorscheme tir_black
+colorscheme distinguished
 
 let &colorcolumn="80,".join(range(120,999),",")
-highlight ColorColumn ctermbg=0 guibg=#2c2d27
+highlight ColorColumn cterm=bold ctermbg=234 guibg=#003333
 
 let g:netrw_altv = 1
 let g:netrw_winsize = 70
