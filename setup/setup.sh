@@ -2,7 +2,7 @@
 # Quick setup
 
 # Check dependencies
-for dependency in curl git ; do 
+for dependency in curl git rake ; do 
   if [! -e ${dependency} ]; then
     echo "FAILED DEPENDENCY: ${dependency} is not installed... exiting"
     exit
@@ -20,7 +20,7 @@ curl -Lo- https://bit.ly/janus-bootstrap | bash
 # Setup overrides 
 
 for config in before after ; do
-  if [-f ~/.vimrc.${config} ];then
+  if [ -f ~/.vimrc.${config} ];then
     mv ~/.vimrc.${config} ~/.vimrc.${config}_old
   fi
 
