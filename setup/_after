@@ -1,3 +1,4 @@
+" vim: set filetype=vim:
 set nocursorline " don't highlight current line
 set background=dark
 set nocompatible
@@ -5,14 +6,38 @@ set nocompatible
 
 set autowrite
 set autoread
+"set autochdir
 set directory-=.
 set nowritebackup
 set softtabstop=2
 set tabstop=8 " Actual tabstops are 8 chars, if they exist I want to fix them
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
-map <Leader>n :NERDTreeToggle<CR>
+autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
+
+" Toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+  if exists("t:expl_buf_num")
+      let expl_win_num = bufwinnr(t:expl_buf_num)
+      if expl_win_num != -1
+          let cur_win_nr = winnr()
+          exec expl_win_num . 'wincmd w'
+          close
+          exec cur_win_nr . 'wincmd w'
+          unlet t:expl_buf_num
+      else
+          unlet t:expl_buf_num
+      endif
+  else
+      exec '1wincmd w'
+      Vexplore
+      let t:expl_buf_num = bufnr("%")
+  endif
+endfunction
+map <silent> <C-E> :call ToggleVExplorer()<CR>
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd CursorHold * checktime
 
 colorscheme desert
 
@@ -25,7 +50,7 @@ let g:netrw_preview   = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize   = 30
 let g:netrw_browse_split = 3
-let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_open_on_console_startup = 0
 let g:headlights_use_plugin_menu = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#csv#enabled = 0
