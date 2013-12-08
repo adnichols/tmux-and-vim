@@ -44,6 +44,7 @@ echo " Setting up Additional plugins"
 echo "******************************"
 
 cd ~/.janus
+git submodule init
 git submodule update
 
 echo ""
