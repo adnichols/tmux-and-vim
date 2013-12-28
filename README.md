@@ -19,7 +19,7 @@ system
 # Setup
 
 Clone into ~/.janus   
-```git clone https://github.com/adnichols/vim-janus.git ~/.janus```
+```git clone https://github.com/adnichols/tmux-and-vim.git ~/.janus```
 
 Run setup   
 ```sh ~/.janus/setup/setup.sh```
