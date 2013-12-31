@@ -63,6 +63,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#csv#enabled = 0
 let g:vimshell_editor_command = "vim"
 
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
+
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("e")': [],
       \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
