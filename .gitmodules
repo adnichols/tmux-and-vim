@@ -34,3 +34,6 @@
 [submodule "vimshell.vim"]
 	path = vimshell.vim
 	url = https://github.com/Shougo/vimshell.vim.git
+[submodule "calendar.vim"]
+	path = calendar.vim
+	url = https://github.com/itchyny/calendar.vim
