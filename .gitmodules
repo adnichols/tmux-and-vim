@@ -37,3 +37,6 @@
 [submodule "calendar.vim"]
 	path = calendar.vim
 	url = https://github.com/itchyny/calendar.vim
+[submodule "vim-gnupg"]
+	path = vim-gnupg
+	url = https://github.com/jamessan/vim-gnupg

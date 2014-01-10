@@ -46,6 +46,8 @@ let g:vimshell_editor_command = "vim"
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
 
+let g:calendar_google_calendar = 1
+
 let g:ctrlp_prompt_mappings = {
       \ 'AcceptSelection("e")': [],
       \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
@@ -56,6 +58,7 @@ map <leader>l :Align
 nmap <leader>a :Ack<space>
 map <leader>cap :CtrlPClearAllCaches<CR>
 map <C-c> "*y
+map <leader>cal :Calendar -view=week<CR>
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
