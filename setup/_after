@@ -15,26 +15,6 @@ set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
 
-" Toggle Vexplore with Ctrl-E
-" function! ToggleVExplorer()
-"   if exists("t:expl_buf_num")
-"       let expl_win_num = bufwinnr(t:expl_buf_num)
-"       if expl_win_num != -1
-"           let cur_win_nr = winnr()
-"           exec expl_win_num . 'wincmd w'
-"           close
-"           exec cur_win_nr . 'wincmd w'
-"           unlet t:expl_buf_num
-"       else
-"           unlet t:expl_buf_num
-"       endif
-"   else
-"       exec '1wincmd w'
-"       Vexplore
-"       let t:expl_buf_num = bufnr("%")
-"   endif
-" endfunction
-" map <silent> <C-E> :call ToggleVExplorer()<CR>
 map <Leader>n :NERDTreeToggle<CR>
 
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -74,6 +54,8 @@ let g:ctrlp_prompt_mappings = {
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 map <leader>l :Align
 nmap <leader>a :Ack<space>
+map <leader>cap :CtrlPClearAllCaches<CR>
+map <C-c> "*y
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
