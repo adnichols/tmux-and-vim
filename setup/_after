@@ -16,6 +16,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
 
 map <Leader>n :NERDTreeToggle<CR>
+set pastetoggle=<Leader>p
 
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd CursorHold * checktime
@@ -31,6 +32,7 @@ colorscheme jellybeans
 "colorscheme desert
 "colorscheme distinguished
 
+let NERDTreeShowHidden=1
 let g:netrw_altv = 1
 let g:netrw_winsize = 70
 let g:netrw_preview   = 1
