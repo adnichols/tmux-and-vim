@@ -40,3 +40,6 @@
 [submodule "vim-gnupg"]
 	path = vim-gnupg
 	url = https://github.com/jamessan/vim-gnupg
+[submodule "vim-gitgutter"]
+	path = vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
