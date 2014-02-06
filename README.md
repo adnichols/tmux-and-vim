@@ -41,54 +41,70 @@ you aren't using that then chances are stuff in here may not work.
 I'll be growing this over time but for now here's a list of some of the more useful, but less known, keyboard shortcuts for this setup:
 
 #### Movement:
+```
 gg - top of file
 G - bottom of file
 ^ - start of line
 $ - end of line
+```
 
 #### Move between panes
+```
 ^L - RIGHT
 ^H - LEFT
 ^J - DOWN
 ^K - UP
+```
 
 #### Move between vim tabs
+```
 SHIFT+} - RIGHT
 SHIFT+{ - LEFT
+```
 
 #### Tab Manipulation
+```
 ^W R - swap top/bottom or left/right split
 ^W T - Break out current window into tab
 ^W o - close ever window in the current tab except current
+```
 
 #### Ctrlp - Hit ^p to start search
+```
 ^z - Mark/unmark files, ^o to open them all
 ^t - Open file in new tab
 ^v - Open file in vertical split
 ^x - Open file in horizontal split
+```
 
 #### Insert:
+```
 i - insert mode
 o - insert below line
 O - insert above line
 a - append after current character
 c - change selection
 cw - change entire word
-
+```
 
 #### Indentation / Comments
+```
 >> - indent 2 spaces
 << - un-indent 2 spaces
 ^?? - comment/un-comment selection/ line
+```
 
 #### Selection
+```
 v - start visual selection
 V - select entire line
 ^n - multi-cursor select (esc 2x to exit multi-cursor)
 ^x - multi-cursor unselect
 vii - select interior of block
+```
 
 #### Special
+```
 . - repeat last action
 ^p - open ctrlp to find files
 ,fef - format entire file
@@ -97,23 +113,29 @@ vii - select interior of block
 :%s/foo/bar/g - search for foo, replace with bar
 cs - change surround - e.g. cs"' changes from " to '
 ,cap - Clear Ctrlp cache 
+```
 
 #### Nerdtree
+```
 hjkl - normal movement
 m - file menu to modify a file
 ,n - open/close nerdtree
+```
 
 #### Helping yourself
+```
 :map , - show all keyboard mappings starting with ,
 :map - show all keyboard mappings
+```
 
 Tmux
 ============
-
+```
 ^a - Meta char to start other commands
 ^a-p - Move to previous window
 ^a-n - Move to next window
 ^a-- - Horizontal split
 ^a-| - Vertical split
+```
 
 Tmux is also scriptable from command line, just run tmux-[tab tab] to see the options
