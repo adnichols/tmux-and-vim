@@ -14,6 +14,7 @@ set tabstop=8 " Actual tabstops are 8 chars, if they exist I want to fix them
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
+set cul
 
 map <Leader>n :NERDTreeToggle<CR>
 set pastetoggle=<Leader>p
@@ -31,6 +32,12 @@ highlight ColorColumn cterm=bold ctermbg=234 guibg=#003333
 colorscheme jellybeans
 "colorscheme desert
 "colorscheme distinguished
+
+augroup BgHighlight
+  autocmd!
+  autocmd WinEnter * set cul
+  autocmd WinLeave * set nocul
+augroup END
 
 let NERDTreeShowHidden=1
 let g:netrw_altv = 1
