@@ -15,6 +15,11 @@ set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
 set cul
+" Turn off the cursor highlight while moving around, makes vim more responsive
+au CursorHold,CursorHoldI * set cul 
+au CursorMoved,CursorMovedI * set nocul 
+" Controls how quickly the cursor highlight reappears
+set updatetime=200
 
 map <Leader>n :NERDTreeToggle<CR>
 set pastetoggle=<Leader>p
