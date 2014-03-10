@@ -14,12 +14,12 @@ set tabstop=8 " Actual tabstops are 8 chars, if they exist I want to fix them
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
-set cul
+"set cul
 " Turn off the cursor highlight while moving around, makes vim more responsive
-au CursorHold,CursorHoldI * set cul 
-au CursorMoved,CursorMovedI * set nocul 
+"au CursorHold,CursorHoldI * set cul 
+"au CursorMoved,CursorMovedI * set nocul 
 " Controls how quickly the cursor highlight reappears
-set updatetime=200
+"set updatetime=400
 
 map <Leader>n :NERDTreeToggle<CR>
 set pastetoggle=<Leader>p
@@ -38,11 +38,11 @@ colorscheme jellybeans
 "colorscheme desert
 "colorscheme distinguished
 
-augroup BgHighlight
-  autocmd!
-  autocmd WinEnter * set cul
-  autocmd WinLeave * set nocul
-augroup END
+" augroup BgHighlight
+"   autocmd!
+"   autocmd WinEnter * set cul
+"   autocmd WinLeave * set nocul
+" augroup END
 
 let NERDTreeShowHidden=1
 let g:netrw_altv = 1
