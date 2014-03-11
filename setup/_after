@@ -14,12 +14,6 @@ set tabstop=8 " Actual tabstops are 8 chars, if they exist I want to fix them
 set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
-"set cul
-" Turn off the cursor highlight while moving around, makes vim more responsive
-"au CursorHold,CursorHoldI * set cul 
-"au CursorMoved,CursorMovedI * set nocul 
-" Controls how quickly the cursor highlight reappears
-"set updatetime=400
 
 map <Leader>n :NERDTreeToggle<CR>
 set pastetoggle=<Leader>p
@@ -27,22 +21,28 @@ set pastetoggle=<Leader>p
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd CursorHold * checktime
 
-"colorscheme calmar256-dark
-"colorscheme tir_black
-
 let &colorcolumn="80,".join(range(120,999),",")
 highlight ColorColumn cterm=bold ctermbg=234 guibg=#003333
 
-" These should be mostly interchangeable with the configs here
 colorscheme jellybeans
-"colorscheme desert
-"colorscheme distinguished
 
-" augroup BgHighlight
-"   autocmd!
-"   autocmd WinEnter * set cul
-"   autocmd WinLeave * set nocul
-" augroup END
+" Enable highlighting current line but not the whole line, that slows 
+" down vim considerably - we disable the highlight when we move to another
+" window
+set cul
+hi clear CursorLine
+augroup CLClear
+    autocmd WinEnter * set cul
+    autocmd! ColorScheme * hi clear CursorLine
+    autocmd WinLeave * set nocul
+augroup END
+
+hi CursorLineNR cterm=bold
+augroup CLNRSet
+    autocmd WinEnter * set cul
+    autocmd! ColorScheme * hi CursorLineNR cterm=bold
+    autocmd WinLeave * set nocul
+augroup END
 
 let NERDTreeShowHidden=1
 let g:netrw_altv = 1
