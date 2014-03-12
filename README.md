@@ -131,11 +131,13 @@ m - file menu to modify a file
 Tmux
 ============
 ```
-^a - Meta char to start other commands
-^a-p - Move to previous window
-^a-n - Move to next window
-^a-- - Horizontal split
-^a-| - Vertical split
+\` - Meta char to start other commands
+\`p - Move to previous window
+\`n - Move to next window
+\`- - Horizontal split
+\`| - Vertical split
+F11 - Modify Meta char to C-o for pasting stuff w/ \`
+F12 - Modify Meta char to \` for normal use
 ```
 
 Tmux is also scriptable from command line, just run tmux-[tab tab] to see the options
