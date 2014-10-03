@@ -31,10 +31,11 @@ for config in before after ; do
   ln -vs ~/.janus/setup/_${config} ~/.vimrc.${config}
 done
 
-# Setup tmux
-
-if [ -f ~/.tmux.conf ]; then
-  mv -v ~/.tmux.conf ~/.tmux.conf_old
+# Setup tmux unless NO_TMUX environment variable is set
+if [ -z $NO_TMUX ]; then
+  if [ -f ~/.tmux.conf ]; then
+    mv -v ~/.tmux.conf ~/.tmux.conf_old
+  fi
 fi
 
 ln -vs ~/.janus/setup/_tmux.conf ~/.tmux.conf
