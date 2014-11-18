@@ -46,3 +46,6 @@
 [submodule "vim-abolish"]
 	path = vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule "vim-ansible-yaml"]
+	path = vim-ansible-yaml
+	url = git://github.com/chase/vim-ansible-yaml.git

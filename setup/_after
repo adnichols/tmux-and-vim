@@ -2,7 +2,7 @@
 set nocursorline " don't highlight current line
 set background=dark
 set nocompatible
-"set clipboard=unnamed
+set clipboard=unnamed
 
 set autowrite
 set autoread
