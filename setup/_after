@@ -15,9 +15,10 @@ set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd! bufwritepost .vimrc.after source ~/.vimrc.after
 
-autocmd FileType * set tabstop=2|set shiftwidth=2|set noexpandtab
+autocmd FileType * set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType ruby set tabstop=2|set shiftwidth=2|set expandtab
 autocmd FileType python set tabstop=4|set shiftwidth=4|set expandtab
+autocmd FileType make set tabstop=4|set shiftwidth=4|set noexpandtab
 au BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 
 map <Leader>n :NERDTreeToggle<CR>
